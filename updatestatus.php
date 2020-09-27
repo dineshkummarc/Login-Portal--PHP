@@ -6,10 +6,10 @@
 
 
    		$sql="SELECT id, issuename, issuestatus, issuedescription FROM issues";
-      mysql_select_db('final',$con);
-      $retval = mysql_query( $sql, $con);
+      mysqli_select_db($con, final);
+      $retval = mysqli_query( $con,  $sql);
    			$count=0;
-   		while ($result=mysql_fetch_array($retval)) {
+   		while ($result=mysqli_fetch_array($retval)) {
    				
    				$status= $_POST['arr'][$count];
    				$idno = intval($result["id"]);
@@ -18,7 +18,7 @@
    				if(!empty($status)){
    					if(strcmp($status,"all")!=0){
   
-   				mysql_query("UPDATE issues SET issuestatus= '$status' WHERE id= $idno ");
+   				mysqli_query($GLOBALS["___mysqli_ston"], "UPDATE issues SET issuestatus= '$status' WHERE id= $idno ");
    			}
    				}
 
