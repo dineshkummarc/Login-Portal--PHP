@@ -7,15 +7,15 @@
     $sql = "INSERT INTO issues (issuename,issuestatus,issuedescription)
 			VALUES ('$_POST[title]','todo','$_POST[description]')";
 
-	mysql_select_db('final');
-   $retval = mysql_query( $sql, $con);
+	mysqli_select_db($GLOBALS["___mysqli_ston"], final);
+   $retval = mysqli_query( $con,  $sql);
    if(! $retval ) {
-      die('Could not enter data: ' . mysql_error());
+      die('Could not enter data: ' . mysqli_error($GLOBALS["___mysqli_ston"]));
    }
    
    //echo "Entered data successfully\n";
    header("location: showissues.php");
-   mysql_close($con);
+   ((is_null($___mysqli_res = mysqli_close($con))) ? false : $___mysqli_res);
 
 	/*if ($conn->query($sql) === TRUE) {
 	    echo "New issue added succesfully";
