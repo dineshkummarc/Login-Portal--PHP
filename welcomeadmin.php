@@ -26,10 +26,10 @@
 
 
       $sql="SELECT id, issuename, issuestatus, issuedescription FROM issues";
-      mysql_select_db('final',$con);
-      $retval = mysql_query( $sql, $con);
+      mysqli_select_db($con, final);
+      $retval = mysqli_query( $con,  $sql);
       $arr=array("hello","real");
-      while ($result=mysql_fetch_array($retval)) {
+      while ($result=mysqli_fetch_array($retval)) {
        
        echo '<tr>
        <td>'.$result["id"].'</td>
