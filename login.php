@@ -7,9 +7,9 @@
       if (!empty($_POST['username'])){
       
    
-      $query = mysql_query("SELECT * FROM users where username = '$_POST[username]' AND password = '$_POST[password]'");
+      $query = mysqli_query($GLOBALS["___mysqli_ston"], "SELECT * FROM users where username = '$_POST[username]' AND password = '$_POST[password]'");
 
-      $row = mysql_fetch_array($query);
+      $row = mysqli_fetch_array($query);
       
       //$count = mysql_num_rows($row);
       
